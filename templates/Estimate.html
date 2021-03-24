@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} VTM Estimator {% endblock %}
+
+{% block body %} 
+<h2>VTM Estimator</h2>
+<form action="/add" method="POST">    
+
+	<label for="radius"> 
+        Radius: <input type="text" id="radius" name="radius" required autofocus > 
+        </label>
+
+    <label for="height"> 
+        Height: <input type="text" id="height" name="height" required > 
+        </label>
+
+    <input type="submit" value="add">
+</form>  
+
+{% endblock %}
