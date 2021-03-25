@@ -1,6 +1,5 @@
 from flask import Flask
-from flask import render_template
-
+from flask import render_template, request
 app = Flask(__name__)
 
 @app.route('/')
@@ -18,8 +17,17 @@ def Estimate():
 @app.route('/add', methods=['POST'])
 def add():
     if request.method == 'POST':
-        num1 = int(request.form['radius'])
-        num2 = int(request.form['height'])
+        num1 = float(request.form['radius'])
+        num2 = float(request.form['height'])
+        top = float(3.14*(num1**2))
+        side = float(2*(3.14*(num1*num2)))
+        total = float(top+side)
+        sqft= float((total/144))
+        MaterialCost = float(25*sqft)
+        LaborCost = float(sqft*15)
+        totalCost = float(MaterialCost+LaborCost)
+        print(totalCost)
+    return render_template('Estimate.html', myValue=totalCost)
         
 if __name__ == '__main__':
     app.run(debug=True)

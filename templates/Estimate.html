@@ -9,12 +9,16 @@
 	<label for="radius"> 
         Radius: <input type="text" id="radius" name="radius" required autofocus > 
         </label>
-
+    <br></br>
     <label for="height"> 
         Height: <input type="text" id="height" name="height" required > 
         </label>
-
+    <br></br>
     <input type="submit" value="add">
-</form>  
 
+
+</form>  
+{% if myValue %}
+<p>The total cost estimate is: ${{myValue}} </p>
+{% endif %}
 {% endblock %}
